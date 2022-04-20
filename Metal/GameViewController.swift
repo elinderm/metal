@@ -10,9 +10,14 @@ import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
+    var panStartZ: CGFloat?
+    var draggingNode: SCNNode?
+    var lastPanLocation: SCNVector3?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(panGest:)))
+        view.addGestureRecognizer(panRecognizer)
         
         // create a new scene
         let scene = SCNScene(named: "initial.scn")!
@@ -92,6 +97,31 @@ class GameViewController: UIViewController {
             material.emission.contents = UIColor.red
             
             SCNTransaction.commit()
+        }
+    }
+    
+    @objc
+    func handlePan(panGest: UIPanGestureRecognizer) {
+        guard let view = view as? SCNView else {return}
+        let location = panGest.location(in: self.view)
+        switch panGest.state {
+        case .began:
+            guard let hitNodeResult = view.hitTest(location, options: nil).first else {return}
+            lastPanLocation = hitNodeResult.worldCoordinates
+            panStartZ = CGFloat(view.projectPoint(lastPanLocation!).z)
+            draggingNode = hitNodeResult.node
+        case .changed:
+            let location = panGest.location(in: view)
+            let worldTouchPosition = view.unprojectPoint(SCNVector3(location.x, location.y, panStartZ!))
+            let movementVector = SCNVector3(
+                worldTouchPosition.x - lastPanLocation!.x,
+                worldTouchPosition.y - lastPanLocation!.y,
+                worldTouchPosition.z - lastPanLocation!.z
+            )
+            draggingNode?.localTranslate(by: movementVector)
+            self.lastPanLocation = worldTouchPosition
+        default:
+            break
         }
     }
     

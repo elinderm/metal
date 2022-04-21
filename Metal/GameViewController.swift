@@ -26,6 +26,10 @@ class GameViewController: UIViewController {
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         scene.rootNode.addChildNode(cameraNode)
+//        let block0 = scene.rootNode.childNode(withName: "block0", recursively: true)
+//        block0?.physicsBody?.collisionBitMask = 100
+//        let t1 = scene.rootNode.childNode(withName: "central", recursively: true)
+//        t1?.physicsBody?.collisionBitMask = 1
         
         // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
@@ -112,18 +116,21 @@ class GameViewController: UIViewController {
             draggingNode = hitNodeResult.node
         case .changed:
             let location = panGest.location(in: view)
+            if (panStartZ == nil) {return}
             let worldTouchPosition = view.unprojectPoint(SCNVector3(location.x, location.y, panStartZ!))
             let movementVector = SCNVector3(
                 worldTouchPosition.x - lastPanLocation!.x,
                 worldTouchPosition.y - lastPanLocation!.y,
                 worldTouchPosition.z - lastPanLocation!.z
             )
+            if (draggingNode?.name == "base") {break}
             draggingNode?.localTranslate(by: movementVector)
             self.lastPanLocation = worldTouchPosition
         default:
             break
         }
     }
+    
     
     override var shouldAutorotate: Bool {
         return true

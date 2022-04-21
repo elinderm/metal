@@ -123,7 +123,8 @@ class GameViewController: UIViewController {
                 worldTouchPosition.y - lastPanLocation!.y,
                 worldTouchPosition.z - lastPanLocation!.z
             )
-            if (draggingNode?.name == "base") {break}
+            let name = draggingNode?.name
+            if (name == "base" || name == "backWall" || name == "leftWall" || name == "rightWall") {break}
             draggingNode?.localTranslate(by: movementVector)
             self.lastPanLocation = worldTouchPosition
         default:

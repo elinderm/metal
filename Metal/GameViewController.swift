@@ -24,16 +24,11 @@ class GameViewController: UIViewController {
         // create a new scene
         let scene = SCNScene(named: "MainScene.scn")!
         self.overlay = OverlayScene(size: self.view.bounds.size)
-//        self.view.scene.overlaySKScene = overlay
         
         // create and add a camera to the scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         scene.rootNode.addChildNode(cameraNode)
-//        let block0 = scene.rootNode.childNode(withName: "block0", recursively: true)
-//        block0?.physicsBody?.collisionBitMask = 100
-//        let t1 = scene.rootNode.childNode(withName: "central", recursively: true)
-//        t1?.physicsBody?.collisionBitMask = 1
         
         // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)

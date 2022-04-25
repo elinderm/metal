@@ -8,11 +8,13 @@
 import UIKit
 import QuartzCore
 import SceneKit
+import SpriteKit
 
 class GameViewController: UIViewController {
     var panStartZ: CGFloat?
     var draggingNode: SCNNode?
     var lastPanLocation: SCNVector3?
+    var overlay : OverlayScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,9 @@ class GameViewController: UIViewController {
         view.addGestureRecognizer(panRecognizer)
         
         // create a new scene
-        let scene = SCNScene(named: "initial.scn")!
+        let scene = SCNScene(named: "MainScene.scn")!
+        self.overlay = OverlayScene(size: self.view.bounds.size)
+//        self.view.scene.overlaySKScene = overlay
         
         // create and add a camera to the scene
         let cameraNode = SCNNode()
@@ -53,6 +57,7 @@ class GameViewController: UIViewController {
         
         // set the scene to the view
         scnView.scene = scene
+        scnView.overlaySKScene = overlay
         
         // allows the user to manipulate the camera
         scnView.allowsCameraControl = true
@@ -80,6 +85,7 @@ class GameViewController: UIViewController {
         if hitResults.count > 0 {
             // retrieved the first clicked object
             let result = hitResults[0]
+            self.overlay.objLabel.text = result.node.name
             
             // get its material
             let material = result.node.geometry!.firstMaterial!

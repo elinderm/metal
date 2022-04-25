@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC599EA528164B7C009A1CA9 /* OverlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC599EA428164B7C009A1CA9 /* OverlayScene.swift */; };
 		BC69B06D280F9C7E009AAE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69B06C280F9C7E009AAE51 /* AppDelegate.swift */; };
 		BC69B06F280F9C7E009AAE51 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BC69B06E280F9C7E009AAE51 /* art.scnassets */; };
 		BC69B071280F9C7E009AAE51 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69B070280F9C7E009AAE51 /* GameViewController.swift */; };
@@ -16,7 +17,7 @@
 		BC69B083280F9C80009AAE51 /* MetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69B082280F9C80009AAE51 /* MetalTests.swift */; };
 		BC69B08D280F9C80009AAE51 /* MetalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69B08C280F9C80009AAE51 /* MetalUITests.swift */; };
 		BC69B08F280F9C80009AAE51 /* MetalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC69B08E280F9C80009AAE51 /* MetalUITestsLaunchTests.swift */; };
-		BC69B0A0280F9E9B009AAE51 /* initial.scn in Resources */ = {isa = PBXBuildFile; fileRef = BC69B09F280F9E9B009AAE51 /* initial.scn */; };
+		BC69B0A0280F9E9B009AAE51 /* MainScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = BC69B09F280F9E9B009AAE51 /* MainScene.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC599EA428164B7C009A1CA9 /* OverlayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayScene.swift; sourceTree = "<group>"; };
 		BC69B069280F9C7E009AAE51 /* Metal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC69B06C280F9C7E009AAE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC69B06E280F9C7E009AAE51 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -49,7 +51,7 @@
 		BC69B088280F9C80009AAE51 /* MetalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC69B08C280F9C80009AAE51 /* MetalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalUITests.swift; sourceTree = "<group>"; };
 		BC69B08E280F9C80009AAE51 /* MetalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BC69B09F280F9E9B009AAE51 /* initial.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = initial.scn; path = art.scnassets/initial.scn; sourceTree = "<group>"; };
+		BC69B09F280F9E9B009AAE51 /* MainScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = MainScene.scn; path = art.scnassets/MainScene.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +102,11 @@
 		BC69B06B280F9C7E009AAE51 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
-				BC69B09F280F9E9B009AAE51 /* initial.scn */,
+				BC69B09F280F9E9B009AAE51 /* MainScene.scn */,
 				BC69B06C280F9C7E009AAE51 /* AppDelegate.swift */,
 				BC69B06E280F9C7E009AAE51 /* art.scnassets */,
 				BC69B070280F9C7E009AAE51 /* GameViewController.swift */,
+				BC599EA428164B7C009A1CA9 /* OverlayScene.swift */,
 				BC69B072280F9C7E009AAE51 /* Main.storyboard */,
 				BC69B075280F9C80009AAE51 /* Assets.xcassets */,
 				BC69B077280F9C80009AAE51 /* LaunchScreen.storyboard */,
@@ -236,7 +239,7 @@
 				BC69B079280F9C80009AAE51 /* LaunchScreen.storyboard in Resources */,
 				BC69B076280F9C80009AAE51 /* Assets.xcassets in Resources */,
 				BC69B074280F9C7E009AAE51 /* Main.storyboard in Resources */,
-				BC69B0A0280F9E9B009AAE51 /* initial.scn in Resources */,
+				BC69B0A0280F9E9B009AAE51 /* MainScene.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +266,7 @@
 			files = (
 				BC69B071280F9C7E009AAE51 /* GameViewController.swift in Sources */,
 				BC69B06D280F9C7E009AAE51 /* AppDelegate.swift in Sources */,
+				BC599EA528164B7C009A1CA9 /* OverlayScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
